@@ -10,26 +10,27 @@
     <div class="board">
       <table>
         <tr>
-          <td id="1">X</td>
-          <td id="2">O</td>
-          <td id="3"></td>
+          <td id="1" class="cell"></td>
+          <td id="2" class="cell"></td>
+          <td id="3" class="cell"></td>
         </tr>
         <tr>
-          <td id="4">O</td>
-          <td id="5">X</td>
-          <td id="6"></td>
+          <td id="4" class="cell"></td>
+          <td id="5" class="cell"></td>
+          <td id="6" class="cell"></td>
         </tr>
         <tr>
-          <td id="7">X</td>
-          <td id="8">X</td>
-          <td id="9">X</td>
+          <td id="7" class="cell"></td>
+          <td id="8" class="cell"></td>
+          <td id="9" class="cell"></td>
         </tr>
       </table>
     </div>
     
-    <div class="status">
-      <p class="turn">Player X's Turn</p>
-      <p class="gameResults">Game Status: Ongoing</p>
+    <div>
+      <p id="turn">Player 1's Turn!</p>
+      <p>Game Status: <span id="gameStatus">Ongoing</span></p>
+      <button>RESET GAME</button>
     </div>
     <script src='./app.js'></script>
   </body>
