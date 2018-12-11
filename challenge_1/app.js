@@ -86,8 +86,10 @@ function playMove(evt) {
 
     removeTableEvents();
   } else if (checkForTie(currentBoard)) {
+    rounds++;
     gameStatus.innerHTML = `"TIE GAME"`
     turn.innerHTML = '"END"';
+    roundNumID.innerHTML = `"${rounds}"`;
   } else {
     checkTurn();
   }
