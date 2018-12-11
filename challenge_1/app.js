@@ -1,3 +1,6 @@
+/////////////////////
+// VARIABLE DECLARATIONS
+
 let cells = document.querySelectorAll('td');
 let resetButton = document.querySelector('button');
 let gameStatus = document.getElementById('gameStatus');
@@ -8,7 +11,7 @@ let player1Turn = true;
 let rounds = 1;
 
 /////////////////////
-// FUNCTIONS
+// GAME FUNCTIONALITY
 
 function checkForWin (currentBoard, player) {
   let checkHorizontals = function() {
@@ -51,7 +54,7 @@ function checkTurn() {
 }
 
 /////////////////////
-// EVENT LISTENERS
+// EVENT LISTENER FUNCTIONALITY
 
 function addTableEvents() {
   for (let cell of cells) {
@@ -107,7 +110,7 @@ resetButton.addEventListener('click', () => {
 
 
 /////////////////////
-// UPON BOOT UP!!! 
+// GAME BOOT UP!!! 
 
 checkTurn();
 addTableEvents();
