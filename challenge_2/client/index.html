@@ -17,15 +17,15 @@
         
 
         <div class="formsContainer">
-          <form class="jsontocsv singleForm formsContainerChild">
-              <textarea class="singleFormChild" rows="1" cols="50" wrap ="physical" name="comments"></textarea>
+          <form class="jsontocsv singleForm formsContainerChild" method="POST" action="/">
+              <textarea class="singleFormChild" id="textArea" rows="1" cols="50" wrap ="physical" name="jsonData"></textarea>
               <button class="singleFormChild" id="toCsvButton">JSON TO CSV</button>
            </form>
     
-            <form class="cvstojson singleForm formsContainerChild">
+            <!-- <form class="cvstojson singleForm formsContainerChild">
                 <textarea class="singleFormChild"></textarea>
                 <button class="singleFormChild" id="toJsonButton">CSV TO JSON</button>
-            </form>
+            </form> -->
         </div>
     </div>
     
