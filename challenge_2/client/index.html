@@ -1,2 +1,35 @@
+<!DOCTYPE html>
 
+<html lang="en"> 
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="WAVYDAVY">
+    <title>CSV Report Generator</title>
+    <link href= "./main.css" rel="stylesheet">
+  </head>
 
+  <body>
+    <div class="mainContainer">
+
+        <div>
+            <h1>CSV Report Generator</h1>
+        </div>
+        
+
+        <div class="formsContainer">
+          <form class="jsontocsv singleForm formsContainerChild">
+              <textarea class="singleFormChild" rows="1" cols="50" wrap ="physical" name="comments"></textarea>
+              <button class="singleFormChild" id="toCsvButton">JSON TO CSV</button>
+           </form>
+    
+            <form class="cvstojson singleForm formsContainerChild">
+                <textarea class="singleFormChild"></textarea>
+                <button class="singleFormChild" id="toJsonButton">CSV TO JSON</button>
+            </form>
+        </div>
+    </div>
+    
+    
+    <script src="./app.js"></script>
+  </body>
+</html>
