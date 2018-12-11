@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <title>BIC BAC BOE</title>
     <link rel="stylesheet" href="main.css">
   </head>
+  
   <body>
 
     <div class="container">
@@ -37,7 +40,7 @@
       </div>
         
         <div class="child">
-          <p id="turn">"PLAYER 1'S TURN!"</p>
+          <p id="turn"></p>
           <p>"GAME STATUS" : <span id="gameStatus">"ONGOING"</span></p>
           <button>"RESET GAME"</button>
         </div>
@@ -46,15 +49,21 @@
     
     <footer>
       <h1>
-        <pre>
+        <pre class="leftFooter">
           Off-White&#8482; for HACK REACTOR
           "MINI APPS SPRINT I"
           SAN FRANCISCO, CALIFORNIA USA
           c. 2012
         </pre>
+        <pre class="rightFooter">
+          "PREV. WINNER" : <span id="prevWinner">"NULL"</span>
+          "NO. OF ROUNDS" : <span id="roundNum">"1"</span>
+        </pre>
       </h1>
     </footer>
+
     <script src='./app.js'></script>
   </body>
+
 </html>
 

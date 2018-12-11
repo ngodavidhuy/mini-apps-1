@@ -2,15 +2,15 @@ let cells = document.querySelectorAll('td');
 let resetButton = document.querySelector('button');
 let gameStatus = document.getElementById('gameStatus');
 let turn = document.querySelector('#turn');
-let player1 = '"X"';
-let player2= '"O"';
+let prevWinnerID = document.getElementById('prevWinner');
+let roundNumID = document.getElementById('roundNum');
 let player1Turn = true;
+let rounds = 1;
 
 /////////////////////
 // FUNCTIONS
 
 function checkForWin (currentBoard, player) {
-
   let checkHorizontals = function() {
     let firstRow = (currentBoard[0] === player) && (currentBoard[0] === currentBoard[1] && currentBoard[0] === currentBoard[2]);
     let secondRow = (currentBoard[3] === player) && (currentBoard[3] === currentBoard[4] && currentBoard[3] === currentBoard[5]);
@@ -39,27 +39,31 @@ function checkForWin (currentBoard, player) {
 
 function checkForTie(currentBoard) {
   let moves = currentBoard.reduce((count, cell) => {
-    if (cell) {
-      count += 1;
-    }
+    if (cell) { count += 1; }
     return count;
   }, 0);
 
   return moves === 9 ? true : false;
 }
 
-function removeCellEvtListeners() {
+function checkTurn() {
+  player1Turn ? turn.innerHTML = '"PLAYER 1\'S TURN"' : turn.innerHTML = '"PLAYER 2\'S TURN"'
+}
+
+/////////////////////
+// EVENT LISTENERS
+
+function addTableEvents() {
+  for (let cell of cells) {
+    cell.addEventListener('click', playMove);
+  }
+}
+
+function removeTableEvents() {
   for (let cell of cells) {
     cell.removeEventListener('click', playMove);
   }
 }
-
-
-
-
-
-/////////////////////
-// EVENT LISTENERS
 
 function playMove(evt) {
     
@@ -70,36 +74,38 @@ function playMove(evt) {
 
   let currentBoard = Array.prototype.slice.call(cells).map( cell => cell.innerHTML);
 
-  if (checkForWin(currentBoard, player1) || checkForWin(currentBoard, player2)) {
+  if (checkForWin(currentBoard, '"X"') || checkForWin(currentBoard, '"O"')) {
     let winningPlayer = player1Turn ? 'PLAYER 2' : 'PLAYER 1'
-    gameStatus.innerHTML = `"${winningPlayer} WINS"`;
+    
+    rounds++;
     turn.innerHTML = '"END"';
-    removeCellEvtListeners();
+    gameStatus.innerHTML = `"${winningPlayer} WINS"`;
+    prevWinnerID.innerHTML = `"${winningPlayer}"`;
+    roundNumID.innerHTML = `"${rounds}"`;
+    player1Turn = winningPlayer === 'PLAYER 1' ? false : true;
+
+    removeTableEvents();
   } else if (checkForTie(currentBoard)) {
     gameStatus.innerHTML = `"TIE GAME"`
     turn.innerHTML = '"END"';
   } else {
-    player1Turn ? turn.innerHTML = '"PLAYER 1\'S TURN"' : turn.innerHTML = '"PLAYER 2\'S TURN"'
-  }
-
-}
-
-function addEvents() {
-  for (let cell of cells) {
-    cell.addEventListener('click', playMove);
+    checkTurn();
   }
 }
 
 resetButton.addEventListener('click', () => {
-  let cells = document.getElementsByTagName('td');
   for (let cell of cells) {
     cell.innerHTML = '';
   }
 
   gameStatus.innerHTML = '"ONGOING"';
-  turn.innerHTML = '"PLAYER 1\'S TURN"';
-  addEvents();
+  checkTurn();
+  addTableEvents();
 });
 
 
-addEvents();
+/////////////////////
+// UPON BOOT UP!!! 
+
+checkTurn();
+addTableEvents();

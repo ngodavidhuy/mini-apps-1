@@ -20,7 +20,6 @@
 }
 
 td {
-  /* border: 2px solid red; */
   width: 100px;
   height: 100px;
 }
@@ -82,9 +81,16 @@ blockquote {
   font-size: 100px;
 }
 
-pre {
+.leftFooter {
   text-align: left;
   margin-top: 130px;
   margin-left: -70px;
   float: left;
+}
+
+.rightFooter {
+  text-align: left;
+  margin-top: 200px;
+  margin-right: 50px;
+  float: right;
 }
