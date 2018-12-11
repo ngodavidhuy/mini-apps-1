@@ -1,10 +1,10 @@
 let cells = document.querySelectorAll('td');
 let resetButton = document.querySelector('button');
 let gameStatus = document.getElementById('gameStatus');
-let player1 = 'X';
-let player2= 'O';
 let turn = document.querySelector('#turn');
-let playerTurn = true;
+let player1 = '"X"';
+let player2= '"O"';
+let player1Turn = true;
 
 /////////////////////
 // FUNCTIONS
@@ -48,30 +48,46 @@ function checkForTie(currentBoard) {
   return moves === 9 ? true : false;
 }
 
+function removeCellEvtListeners() {
+  for (let cell of cells) {
+    cell.removeEventListener('click', playMove);
+  }
+}
+
+
+
+
+
 /////////////////////
 // EVENT LISTENERS
 
-for (let cell of cells) {
-
-  cell.addEventListener('click', (evt) => {
+function playMove(evt) {
     
-    if (!evt.target.innerHTML) {
-      evt.target.innerHTML = playerTurn ? 'X' : 'O';
-      playerTurn = !playerTurn;
-    }
+  if (!evt.target.innerHTML) {
+    evt.target.innerHTML = player1Turn ? '"X"' : '"O"';
+    player1Turn = !player1Turn;
+  }
 
-    let currentBoard = Array.prototype.slice.call(cells).map( cell => cell.innerHTML);
+  let currentBoard = Array.prototype.slice.call(cells).map( cell => cell.innerHTML);
 
-    if (checkForWin(currentBoard, player1) || checkForWin(currentBoard, player2)) {
-      let winningPlayer = playerTurn ? 'Player 2' : 'Player 1'
-      gameStatus.innerHTML = `${winningPlayer} wins`
-    } else if (checkForTie(currentBoard)) {
-      gameStatus.innerHTML = `GAME IS TIED!!! PLEASE RESET~`
-    }
+  if (checkForWin(currentBoard, player1) || checkForWin(currentBoard, player2)) {
+    let winningPlayer = player1Turn ? 'PLAYER 2' : 'PLAYER 1'
+    gameStatus.innerHTML = `"${winningPlayer} WINS"`;
+    turn.innerHTML = '"END"';
+    removeCellEvtListeners();
+  } else if (checkForTie(currentBoard)) {
+    gameStatus.innerHTML = `"TIE GAME"`
+    turn.innerHTML = '"END"';
+  } else {
+    player1Turn ? turn.innerHTML = '"PLAYER 1\'S TURN"' : turn.innerHTML = '"PLAYER 2\'S TURN"'
+  }
 
-    playerTurn ? turn.innerHTML = 'Player 1\'s turn' : turn.innerHTML = 'Player 2\'s turn'
+}
 
-  });
+function addEvents() {
+  for (let cell of cells) {
+    cell.addEventListener('click', playMove);
+  }
 }
 
 resetButton.addEventListener('click', () => {
@@ -80,6 +96,10 @@ resetButton.addEventListener('click', () => {
     cell.innerHTML = '';
   }
 
-  gameStatus.innerHTML = 'Ongoing';
-  turn.innerHTML = 'Player 1\'s turn';
+  gameStatus.innerHTML = '"ONGOING"';
+  turn.innerHTML = '"PLAYER 1\'S TURN"';
+  addEvents();
 });
+
+
+addEvents();

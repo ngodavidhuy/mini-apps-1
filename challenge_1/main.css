@@ -1,6 +1,90 @@
-td {
-  border: 2px solid red;
-  width: 40px;
-  height:40px;
+* {
+  font-family: helvetica;
+  font-weight: 800;
+  margin-top: 20px;
   text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+} 
+
+.child {
+  margin: auto;
+}
+
+.board {
+  display: flex;
+}
+
+td {
+  /* border: 2px solid red; */
+  width: 100px;
+  height: 100px;
+}
+
+.cell {
+  font-size: 30px;
+}
+
+#cell0 {
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#cell1 {
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+}
+
+#cell2 {
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+}
+
+#cell3 {
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#cell4 {
+  border: 2px solid black;
+}
+
+#cell5 {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+}
+
+#cell6 {
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+}
+
+#cell7 {
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+#cell8 {
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+}
+
+blockquote {
+  margin: 30px;
+  font-size: 100px;
+}
+
+pre {
+  text-align: left;
+  margin-top: 130px;
+  margin-left: -70px;
+  float: left;
 }
