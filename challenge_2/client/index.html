@@ -15,22 +15,26 @@
     <div class="main-container">
 
         <div class="table-container">
-          <form class="submissionForm" id="main-form" method="POST" action="/">
-                <div><textarea  id="json-input" rows="1" cols="50" wrap ="physical" name="jsonData" placeholder="Paste in valid JSON and SUBMIT!~"></textarea></div>
-                <div><button id="submissionButton">JSON TO CSV</button></div>
+          <form class="submissionForm" id="main-form" method="POST" action="/" enctype="multipart/form-data">
+                <input type="file" name="jsonFile">
+                <textarea  id="json-input" rows="1" cols="50" wrap ="physical" name="jsonData" placeholder="Option to copy and paste into textarea here OR import json file above!!!"></textarea>
+                <button id="submissionButton">JSON TO CSV</button>
             </form>
         </div>
 
         <div id="csv-output">
             <pre>
-                SAMPLE DATA (Input your own! ^_^)
+                SAMPLE DATA BELOW (Input and convert your own JSON into CSV! ^_^)
+
+                (Converter only compatible with sample data format provided!)
 
                 firstName,lastName,county,city,role,sales
                 Joshie,Wyattson,San Mateo,San Mateo,Broker,1000000
                 Beth Jr.,Johnson,San Mateo,Pacifica,Manager,2900000
                 Smitty,Won,San Mateo,Redwood City,Sales Person,4800000
                 Allen,Price,San Mateo,Burlingame,Sales Person,2500000
-                Beth,Johnson,San Francisco,San Francisco,Broker/Sales Person,7500000</pre>
+                Beth,Johnson,San Francisco,San Francisco,Broker/Sales Person,7500000
+            </pre>
         </div>
 
     </div>

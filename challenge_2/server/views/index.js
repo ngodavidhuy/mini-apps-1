@@ -17,10 +17,11 @@ let testingInjection = (results) => {
       <div class="main-container">
   
           <div class="table-container">
-            <form class="submissionForm" id="main-form" method="POST" action="/">
-                  <div><textarea  id="json-input" rows="1" cols="50" wrap ="physical" name="jsonData" placeholder="Paste in valid JSON and SUBMIT!~"></textarea></div>
-                  <div><button id="submissionButton">JSON TO CSV</button></div>
-              </form>
+          <form class="submissionForm" id="main-form" method="POST" action="/" enctype="multipart/form-data">
+                <input type="file" name="jsonFile">
+                <textarea  id="json-input" rows="1" cols="50" wrap ="physical" name="jsonData" placeholder="Option to copy and paste into textarea here OR import json file above!!!"></textarea>
+                <button id="submissionButton">JSON TO CSV</button>
+            </form>
           </div>
   
           <div id="csv-output">

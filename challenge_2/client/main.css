@@ -19,6 +19,12 @@ h1 {
   padding-top: 0;
 }
 
+#main-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 #csv-output {
   margin-right: 400px;
 }
