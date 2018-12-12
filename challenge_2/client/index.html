@@ -9,26 +9,31 @@
   </head>
 
   <body>
-    <div class="mainContainer">
 
-        <div>
-            <h1>CSV Report Generator</h1>
-        </div>
-        
+    <h1>CSV Report Generator</h1>
 
-        <div class="formsContainer">
-          <form class="jsontocsv singleForm formsContainerChild" method="POST" action="/">
-              <textarea class="singleFormChild" id="textArea" rows="1" cols="50" wrap ="physical" name="jsonData"></textarea>
-              <button class="singleFormChild" id="toCsvButton">JSON TO CSV</button>
-           </form>
-    
-            <!-- <form class="cvstojson singleForm formsContainerChild">
-                <textarea class="singleFormChild"></textarea>
-                <button class="singleFormChild" id="toJsonButton">CSV TO JSON</button>
-            </form> -->
+    <div class="main-container">
+
+        <div class="table-container">
+          <form class="submissionForm" id="main-form" method="POST" action="/">
+                <div><textarea  id="json-input" rows="1" cols="50" wrap ="physical" name="jsonData" placeholder="Paste in valid JSON and SUBMIT!~"></textarea></div>
+                <div><button id="submissionButton">JSON TO CSV</button></div>
+            </form>
         </div>
+
+        <div id="csv-output">
+            <pre>
+                SAMPLE DATA (Input your own! ^_^)
+
+                firstName,lastName,county,city,role,sales
+                Joshie,Wyattson,San Mateo,San Mateo,Broker,1000000
+                Beth Jr.,Johnson,San Mateo,Pacifica,Manager,2900000
+                Smitty,Won,San Mateo,Redwood City,Sales Person,4800000
+                Allen,Price,San Mateo,Burlingame,Sales Person,2500000
+                Beth,Johnson,San Francisco,San Francisco,Broker/Sales Person,7500000</pre>
+        </div>
+
     </div>
-    
     
     <script src="./app.js"></script>
   </body>

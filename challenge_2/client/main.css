@@ -1,38 +1,39 @@
 
-.mainContainer {
+h1 {
+  text-align: center;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.table-container {
   display: flex;
   flex-direction: column;
 }
 
-.formsContainer {
-  display: flex;
-  flex-direction: column;
-  order: 2;
-  margin: auto;
+.json-input {
+  padding-left: 0;
+  padding-top: 0;
 }
 
-.singleForm {
-  display: flex;
-  flex-direction: column;
+#csv-output {
+  margin-right: 400px;
 }
 
 textarea {
-  padding: 10% 20%;
-  padding-left: 0;
-  padding-top: 0;
-  height: 300px;
-  width: 300px;
+  width: 500px;
+  height: 700px;
 }
 
-.singleFormChild {
-  margin: 5% 20%;
+#submissionButton {
+  width: 100px;
+  height: 75px;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 200px;
 }
 
-h1 {
-  order: 1;
-  flex-wrap: wrap;
-}
 
-button {
-  margin: auto;
-}
