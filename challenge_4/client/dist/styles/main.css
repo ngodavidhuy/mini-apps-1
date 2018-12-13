@@ -1,0 +1,18 @@
+#app {
+  height: 500px;
+  width: 500px;
+}
+
+.row {
+  /* display: inline; */
+  height: 30px;
+  border: 1px solid red;
+  flex: 1 0 13%;
+  text-align: center;
+}
+
+.board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
