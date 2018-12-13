@@ -1,0 +1,16 @@
+.form-group {
+  /* border: 2px solid black; */
+}
+
+.form-input {
+  border: 2px solid orange;
+  margin-left: 20px;
+}
+
+.form-label {
+  border: 2px solid blue;
+}
+
+button {
+  margin: 20px 50px;
+}
