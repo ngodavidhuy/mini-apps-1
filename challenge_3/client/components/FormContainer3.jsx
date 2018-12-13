@@ -11,7 +11,7 @@ const FormContainer3 = (props) => {
           <Input type={'text'} title={'CVV'} name={'cvv'} value={props.cvv} handleChange={props.handleChange} />
           <Input type={'text'} title={'Billing zip code'} name={'billingZip'} value={props.billingZip} handleChange={props.handleChange} />
         </form>
-        <Button className="confirmButton" handleNext={props.handleNext} buttonName={'Confirm Purchase!'} />
+        <Button className={'nextButton'} handleNext={props.handleNext} buttonName={'Confirm Purchase!'} type={'button'} />
       </div>
     );
 }

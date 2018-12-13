@@ -20,7 +20,7 @@ const Confirmation = (props) => {
           <li>CVV #: {props.purchaseInfo.cvv}</li>
           <li>Billing zip: {props.purchaseInfo.billingZip}</li>
         </ul>
-        <Button className="confirmButton" handleNext={props.handleNext} buttonName={'Purchase!'} />
+        <Button className={'submitButton'} handleSubmit={props.handleSubmit} buttonName={'Purchase!'} type={'submit'}/>
       </div>
     );
 }

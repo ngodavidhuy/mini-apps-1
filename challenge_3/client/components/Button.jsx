@@ -1,7 +1,7 @@
 const Button = (props) => {
   return (
     <div>
-      <button onClick={props.handleNext}>{props.buttonName}</button>
+      <button className={props.className} onClick={props.handleSubmit || props.handleNext} type={props.type}>{props.buttonName}</button>
     </div>
   );
 }

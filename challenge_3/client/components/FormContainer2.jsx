@@ -13,7 +13,7 @@ const FormContainer2 = (props) => {
           <Input type={'text'} title={'Zip'} name={'zip'} value={props.zip} handleChange={props.handleChange} />
           <Input type={'text'} title={'Phone number'} name={'phone'} value={props.phone} handleChange={props.handleChange} />
         </form>
-        <Button className="confirmButton" handleNext={props.handleNext} buttonName={'next'} />
+        <Button className={'nextButton'} handleNext={props.handleNext} buttonName={'next'} type={'button'} />
       </div>
     );
 }
