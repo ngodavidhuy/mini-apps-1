@@ -1,4 +1,5 @@
 import Input from './Input.js';
+import Button from './Button.js';
 
 const FormContainer2 = (props) => {
     return (
@@ -12,7 +13,7 @@ const FormContainer2 = (props) => {
           <Input type={'text'} title={'Zip'} name={'zip'} value={props.zip} handleChange={props.handleChange} />
           <Input type={'text'} title={'Phone number'} name={'phone'} value={props.phone} handleChange={props.handleChange} />
         </form>
-        <button>next</button>
+        <Button className="confirmButton" handleNext={props.handleNext} buttonName={'next'} />
       </div>
     );
 }

@@ -1,4 +1,5 @@
 import Input from './Input.js';
+import Button from './Button.js';
 
 const FormContainer3 = (props) => {
     return (
@@ -10,6 +11,7 @@ const FormContainer3 = (props) => {
           <Input type={'text'} title={'CVV'} name={'cvv'} value={props.cvv} handleChange={props.handleChange} />
           <Input type={'text'} title={'Billing zip code'} name={'billingZip'} value={props.billingZip} handleChange={props.handleChange} />
         </form>
+        <Button className="confirmButton" handleNext={props.handleNext} buttonName={'Confirm Purchase!'} />
       </div>
     );
 }
