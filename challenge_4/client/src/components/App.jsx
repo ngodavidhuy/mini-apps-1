@@ -28,7 +28,27 @@ class App extends React.Component {
   }
 
   checkForTie() {
+    let board = this.state.board;
+    let spacesTakenCount = 0;
 
+    for (let r = board.length - 1; r >= 0; r--) {
+      for (let c = board[r].length - 1; c >= 0; c--) {
+        if (board[r][c] !== 0) {
+          spacesTakenCount++;
+        }
+      }
+    }
+
+    if (spacesTakenCount === 42) {
+      this.setState({
+        tie: true
+      }, () => {
+        console.log('GAME IS A TIE');
+        console.log(this.state.tie);
+      });
+    } else {
+      console.log('GAME ON!')
+    }
   }
 
   changeTurn() {
@@ -63,6 +83,8 @@ class App extends React.Component {
           spaceFound = true;
         }
     }
+
+    this.checkForTie();
   }
 
   render() {
