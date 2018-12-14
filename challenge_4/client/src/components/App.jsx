@@ -6,7 +6,6 @@ class App extends React.Component {
     this.state = {
       win: false,
       tie: false,
-      piece: 'X',
       turn: 1,
       board: [
         [0,0,0,0,0,0,0],
@@ -37,29 +36,33 @@ class App extends React.Component {
       this.setState(prevState => {
         return {
           turn: 2,
-          piece: 'O'
         }
       });
     } else {
       this.setState(prevState => {
         return {
           turn: 1,
-          piece: 'X'
         }
       });
     }
   }
 
-  handleMove(e) {
-    let col = e.target.dataset.y;
+  handleMove(evt) {
+    let col = evt.target.dataset.y;
+    let board = this.state.board.slice();
+    let spaceFound = false;
 
-
-    console.log(`${col}`);
-    e.target.innerHTML = this.state.piece;
-    this.changeTurn();
-    // if ()
-    // this.checkForWin();
-    // this.checkForTie();
+    for (let r = board.length - 1; r >= 0; r--) {
+        if (board[r][col] === 0 && !spaceFound) {
+          board[r][col] = (this.state.turn === 1 ? 1 : 2);
+          this.setState({
+            board
+          }, () => {
+            this.changeTurn();
+          });
+          spaceFound = true;
+        }
+    }
   }
 
   render() {
