@@ -19,12 +19,38 @@ class App extends React.Component {
 
     this.checkForWin = this.checkForWin.bind(this);
     this.checkForTie = this.checkForTie.bind(this);
-    this.changeTurn = this.changeTurn.bind(this);
     this.handleMove = this.handleMove.bind(this);
   }
 
-  checkForWin() {
+  checkForWin(player) {
+    let board = this.state.board;
+    let win = false;
 
+    //VERTICAL
+    for (let c = 0; c < 7; c++) {
+      for (let r = 0; r < 3; r++) {
+        if (board[r+3][c] === player && board[r+2][c] === player && board[r+1][c] === player  && board[r][c] === player) {
+          win = true;
+        }
+      }
+    }
+
+    //HORIZONTAL
+    for (let c = 0; c < 4; c++) {
+      for (let r = 0; r < 6; r++) {
+        if (board[r][c] === player && board[r][c+1] === player && board[r][c+2] === player && board[r][c+3] === player) {
+          win = true;
+        }
+      }
+    }
+
+    //MAJOR DIAGONAL
+
+    //MINOR DIAGONAL
+
+
+    console.log('check win');
+    console.log(win);
   }
 
   checkForTie() {
@@ -44,47 +70,33 @@ class App extends React.Component {
         tie: true
       }, () => {
         console.log('GAME IS A TIE');
-        console.log(this.state.tie);
+        // console.log(this.state.tie);
       });
     } else {
-      console.log('GAME ON!')
-    }
-  }
-
-  changeTurn() {
-    if (this.state.turn === 1) {
-      this.setState(prevState => {
-        return {
-          turn: 2,
-        }
-      });
-    } else {
-      this.setState(prevState => {
-        return {
-          turn: 1,
-        }
-      });
+      // console.log('GAME ON!')
     }
   }
 
   handleMove(evt) {
     let col = evt.target.dataset.y;
     let board = this.state.board.slice();
+    let currentPlayer = this.state.turn === 1 ? 1 : 2;
+    let nextPlayer = currentPlayer === 1 ? 2 : 1;
     let spaceFound = false;
 
     for (let r = board.length - 1; r >= 0; r--) {
         if (board[r][col] === 0 && !spaceFound) {
           board[r][col] = (this.state.turn === 1 ? 1 : 2);
           this.setState({
-            board
+            board: board,
+            turn: nextPlayer
           }, () => {
-            this.changeTurn();
+            this.checkForWin(currentPlayer);
+            this.checkForTie();
           });
           spaceFound = true;
         }
     }
-
-    this.checkForTie();
   }
 
   render() {
